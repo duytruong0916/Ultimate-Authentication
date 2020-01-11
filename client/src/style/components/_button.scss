@@ -1,0 +1,60 @@
+@import '../base/settings';
+
+.button{
+    font-weight: bold;
+    border:none;
+    outline: none;
+    padding: $s-size;
+    background-color: $dark-black;
+    color: $off-white;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: none;
+    font-size: $font-size-large;
+    @media (max-width: $desktop-breakpoint){
+        font-size: $font-size-small;
+        padding: $s-size;
+    }
+    &:hover{
+        text-decoration: none;
+        cursor: pointer;
+        background-color: $dark-grey;
+    }
+}
+.button-card{
+    @extend.button;
+    margin: auto;
+    width: 90%;
+    background-color: black;
+    @media (max-width: $desktop-breakpoint){
+        font-size: $font-size-medium;
+        padding: $xxs-size;
+    }
+
+}
+.remove-button{
+    width: 25%;
+    margin: 0;
+    
+}
+.button-white{
+    background-color: $off-white;
+    color: $dark-black;
+    @media (max-width: $desktop-breakpoint){
+        font-size: $font-size-medium;
+        padding: $xxs-size;
+    }
+    &:hover{
+        background-color: $off-white;
+    }
+}
+.button-circle
+{
+    border-radius: 30%;
+}
+.button-secondary{
+    background-color: #888;
+}
+.new-link-color{
+    color: $dark-blue;
+}

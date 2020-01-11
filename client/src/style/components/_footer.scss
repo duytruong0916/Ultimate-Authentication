@@ -1,0 +1,33 @@
+
+.toggle,.footer-toggle,.footer-collapse{
+    cursor: pointer;
+    @media (min-width: 768px) {
+        display: none
+    }
+}
+.footer-toggle{
+    @extend .footer-subtile;
+}
+.footer-subtile{
+    font-weight: 600;
+    font-size: $font-size-large;
+    letter-spacing: $xxs-size;
+}
+.footer-policy{
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.second-col{
+    padding: 10rem 20rem;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 768px - 0.01px) {
+        display: none;
+    }
+}

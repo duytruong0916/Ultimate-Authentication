@@ -1,0 +1,17 @@
+@import '../base/settings';
+
+.form{
+    display: flex;
+    flex-direction: column;
+    >* {
+        margin-bottom: $m-size;
+    }
+}
+.form-error{
+    font-style: italic;
+    margin: 0 0 $m-size 0;
+}
+.search-form{
+    width:75%;
+    height: 40px;
+}

@@ -1,0 +1,31 @@
+.card-info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color:white;
+    line-height: $s-size;
+}
+.card-price{
+    font-weight: lighter;
+    color: $grey;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: auto;
+    width: 50%;
+}
+.card-title{
+    font-weight: 600;
+}
+.quanlity-adjust{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    padding: $m-size;
+    border: 0.5px $grey solid;
+    color: $grey;
+    .count-item{
+        padding: 0 $m-size;
+        color:black;
+    }
+}

@@ -1,0 +1,156 @@
+.navbar {
+  background-color: $off-white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 120px;
+  border-bottom: 0.5px solid rgb(189, 186, 186);
+  @media (max-width: $desktop-breakpoint) {
+    height: 70px;
+ }
+  .navbar_brand {
+    @media (max-width: $desktop-breakpoint) {
+      order: 2;
+   }
+  }
+  .account-dropdown{
+    @media (max-width: $desktop-breakpoint) {
+      order: 1;
+    }
+  }
+  .cart-search{
+    @media (max-width: $desktop-breakpoint) {
+      order: 3;
+  
+    }
+  }
+}
+
+.profile_image {
+    width: $xxl-size;
+    height: $xxl-size;
+
+}
+.profile_image_checkout{
+  width: $xl-size;
+  height: $xl-size;
+  margin: auto;
+  @media (min-width: $desktop-breakpoint) {
+    width: $xxl-size;
+    height: $xxl-size;
+  }
+}
+.profile_name{
+  color: $dark-black;
+  font-size: $font-size-title;
+  letter-spacing: $xxs-size;
+  font-family: $fancy-font;
+  @media (max-width: $desktop-breakpoint - 0.01rem ) {
+    font-size: $font-size-xlarge;
+  }
+}
+.navbar-collapse{
+  background-color:$off-white;
+  text-align: center;
+}
+.navbar-collapse, .navbar-toggle {
+  @media (min-width: $desktop-breakpoint) {
+    display: none;
+  }
+}
+.main {
+   margin:auto;
+  @media (max-width: $desktop-breakpoint - 0.01rem ) {
+    display: none;
+  }
+}
+.account, .search,.profile_image {
+  @media (max-width: $desktop-breakpoint - 0.01rem ) {
+    display: none;
+  }
+}
+.link-nav {
+  color: $grey;
+  font-size: $m-size;
+  letter-spacing: $xxs-size;
+  margin: $l-size;
+  text-decoration: none;
+  @media (min-width: $desktop-breakpoint) {
+    font-size: $mx-size;
+    &:hover {
+      text-decoration: none;
+      border-bottom: $dark-black solid 0.5px;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+    color: $dark-black;
+    font-weight: 600;
+    padding: $xs-size 0;
+  }
+}
+.is-active {
+  color: $dark-black;
+  padding: $xs-size 0;
+  font-weight: 600;
+  @media (min-width: $desktop-breakpoint) {
+    border-bottom: $off-white solid 0.5px;
+}
+}
+
+.fa {
+  outline: none;
+  color: $dark-black;
+  border: none;
+  font-size: $mx-size;
+  background-color: none;
+}
+.fa-bars,.fa-search{
+  font-size: $l-size;
+  color: $dark-black;
+}
+.fa-search:hover{
+  color: white;
+}
+.cart-badge{
+  padding: 5px;
+  border: 1px solid orangered;
+  color: orangered;
+  border-radius: 100%;
+  font-size: $xs-size;
+}
+
+//modal
+.modal-dialog {
+  text-align: center;
+  position: absolute;
+  min-width: 100%;
+  @media (min-width: $desktop-breakpoint) {
+    right: 0;
+    top: 0;
+    max-width: 100%;
+    min-width: 30%;
+}
+}
+.modal-header{
+  background-color: black;
+  color: $dark-black;
+  .modal-title{
+    margin:auto;
+    font-weight: 500;
+    font-size: $font-size-medium;
+    @media (max-width: $desktop-breakpoint) {
+      font-size: $font-size-small;
+  }
+  }
+}
+.modal-content {
+  @extend .modal-dialog;
+}
+.modal-body{
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+.modal-body::-webkit-scrollbar {
+  display: none;
+}

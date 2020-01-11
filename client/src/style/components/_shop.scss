@@ -1,0 +1,53 @@
+.wrapper{
+    overflow-x:hidden; 
+}
+.input-group-prepend
+{   
+    height: 60px;
+    border: 0.5px solid $grey;
+    width: 90%;
+    margin: $font-size-small auto;
+    select{
+        font-size: $font-size-small;
+        outline: none;
+        text-decoration: none;
+        border:none;
+        margin: auto;
+        background-color: none;
+        
+    }
+}
+.double{
+    width: 45%;
+}
+.section{
+    padding: $l-size $xl-size;
+}
+
+.check-title{
+    font-weight: 700;
+    font-size: $font-size-large;
+    border-bottom: solid black 1px;
+
+}
+.check-option{
+    margin-top: $m-size;
+}
+.form-check-label{
+    color: $grey;
+}
+.poster-men{
+    width: 100%;
+    background-image: url('/asset/men-images/men.jpg');
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @media (max-width: $desktop-breakpoint) {
+        height: 30vh;
+    }
+}
+.poster-women{
+    @extend .poster-men;
+    background-image: url('/asset/women-images/women.jpg');
+}

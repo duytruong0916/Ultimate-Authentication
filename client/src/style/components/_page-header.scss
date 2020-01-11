@@ -1,0 +1,13 @@
+@import  '../base/settings';
+
+.page-header-title{
+    font-size: $mx-size;
+    font-weight: 700;
+    text-decoration: none;
+    @media (min-width: $desktop-breakpoint){
+        font-size: $l-size;
+    }
+    &:hover{
+        text-decoration: none;
+    }
+}  

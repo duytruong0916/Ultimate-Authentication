@@ -1,0 +1,23 @@
+@import '../base/settings';
+
+.text-input{
+    border: solid 1px #cacccd;
+    border-radius: none;
+    height: 50px;
+    padding: $s-size;
+    margin-right:$xs-size;
+    font-size: $font-size-large;
+    font-weight: 300;
+}
+.select{
+    @extend .text-input;
+}
+.textarea {
+    @extend .text-input;
+    height: 10rem;
+}
+.missing-field{
+    border: red 1px solid;
+}
+
+

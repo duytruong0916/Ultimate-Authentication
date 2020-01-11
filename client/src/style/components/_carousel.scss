@@ -1,0 +1,33 @@
+.carousel {
+    text-align: center;
+    background-color: goldenrod;
+    color: $dark-black;
+    height: 7rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    span{
+        font-size: $font-size-medium; 
+        @media (max-width: 768px) {
+            font-size: $font-size-xsmall; 
+        }
+    }
+}
+// /* width */
+// .card-item-shower::-webkit-scrollbar {
+//     width: 20px;
+//   }
+  
+//   /* Track */
+//   ::-webkit-scrollbar-track {
+//     background: #f1f1f1; 
+//   }
+   
+//   /* Handle */
+//   .card-item-shower::-webkit-scrollbar-thumb {
+//     background: black; 
+//   }
+  
+//   /* Handle on hover */
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: #555; 
+//   }

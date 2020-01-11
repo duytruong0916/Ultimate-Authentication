@@ -1,0 +1,80 @@
+.product-info {
+  letter-spacing: 1px;
+  margin-top: 100px;
+  font-size: $mx-size;
+  @media (max-width: 768px) {
+    font-size: $m-size;
+    margin-top: 50px;
+  }
+  .infor {
+    margin-left: auto;
+    width: 90%;
+    @media (max-width: 768px) {
+      text-align: center;
+      margin-left: none;
+      width: 100%;
+    }
+    .product-descritpion {
+      color: $grey;
+      font-weight: 400;
+      font-size: $font-size-xlarge;
+      @media (max-width: 768px) {
+        font-size: $mx-size;
+      }
+    }
+    .product-name {
+      font-size: $font-size-xtitle;
+      font-weight: 700;
+      @media (max-width: 768px) {
+        font-size: $font-size-title;
+      }
+    }
+    .product-price {
+      color: $grey;
+      font-weight: 400;
+      font-size: $font-size-title;
+      @media (max-width: 768px) {
+        font-size: $mx-size;
+      }
+    }
+    .product-size {
+      color: $dark-black;
+      font-weight: 600;
+      .size {
+        padding: $xs-size;
+        background: black;
+        color: white;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+.description-title{
+    font-weight: 600;
+    font-size: $mx-size;
+    @media (max-width: 768px) {
+        font-size: $font-size-medium;
+    }
+    .active-class{
+        border-bottom: 0.5px solid $dark-black;
+    }
+}
+.fa-star {
+  color: rgb(255, 230, 0);
+}
+.magnifier {
+  /* Styles for <div> around image and magnifying glass */
+  margin: auto;
+}
+
+.magnifier-image {
+  /* Styles for large image */
+  margin: auto;
+}
+
+.magnifying-glass {
+  width: 250px;
+  /* Styles for magnifying glass */
+  @media (min-width: 768px) {
+  }
+}
