@@ -16,10 +16,10 @@ const authRouters = require('../server/routes/auth');
 
 app.use(morgan('dev'));
 app.use(bodyparser.json());
-if((process.env.NODE_ENV = 'development')) {
-    app.use(cors({origin: `http://localhost:3000`}));
-};
-//app.use(cors());
+// if((process.env.NODE_ENV = 'development')) {
+//     app.use(cors({origin: `http://localhost:3000`}));
+// };
+app.use(cors());
 app.use('/api', authRouters);
 const port  = process.env.PORT || 8000;
 

@@ -1,5 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
+import {Redirect } from 'react-router-dom';
+import {authenticate, isAuth } from '../auth/Helpers';
+import Google from '../auth/Google';
 const SignIn = () => {
     const [data, setdata] = useState({
         password: '',
@@ -8,14 +11,21 @@ const SignIn = () => {
         error: false,
         success:false,
         errornotmatch: false,
+        name:''
     })
-    const {success,email, password, confirmpassword, error, errornotmatch } = data;
+    const {success,email, password, confirmpassword, error, errornotmatch,name } = data;
     const onChangeHandler = name => (e) => {
         const value = e.target.value;
         setdata({ ...data, [name]: value });
     }
+    const informParent = (response)=>{
+        authenticate(response, ()=>{
+            setdata({email:'',error:'',password: '',confirmpassword:'',success: true,name:response.data.user.lastname});
+        });
+    }
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log(process.env.REACT_APP_GOOGLECLIENTID)
         if(!email||!password||!confirmpassword){
             setdata({...data, error: 'Missing required fields'});
         }else if(password!==confirmpassword){
@@ -25,12 +35,16 @@ const SignIn = () => {
             //console.log(`${process.env.REACT_APP_API}`)
             axios({
                 method: 'POST',
-                url: `http://localhost:8000/api/signin`,
+                url: `${process.env.REACT_APP_API}/signin`,
                 data: {email, password}
             })
             .then((response)=>{
-                console.log(response.data.user)
-                setdata({email:'',error:'',password: '',confirmpassword:'',success: true});
+                console.log('USER INFO:',response.data.user)
+                console.log('TOKEN:',response.data.token)
+                authenticate(response, ()=>{
+                    setdata({email:'',error:'',password: '',confirmpassword:'',success: true,name:response.data.user.lastname});
+                    window.location.reload(false);
+                });
             })
             .catch(error=>{
                 setdata({...data, error: error.response.data.error});
@@ -38,9 +52,9 @@ const SignIn = () => {
         }
     }
     const ShowForm = ()=>(
-        <div className='w-50 mx-auto'>
+        <div className='py-5'>
             <div className='page-header-title text-center'>LOG IN</div>
-            <form onSubmit={onSubmit} onBlur={()=>setdata({...data,error:'', errornotmatch:'', success:''})}>
+            <form onSubmit={onSubmit} onBlur={()=>setdata({...data,error:'', errornotmatch:'', success:'',name:''})}>
                 <div className='mt-4'>
                     <div><span className="font-weight-bold">*Email:</span></div>
                     <input
@@ -70,12 +84,12 @@ const SignIn = () => {
                             onChange={onChangeHandler('confirmpassword')} />
                     </div>
                 </div>
-                <div className='text-center text-danger'>
+                <div className='text-center text-danger m-4'>
                     {error&&(<div>{error}</div>)}
                     {!error&&errornotmatch&&(<div>{errornotmatch}</div>)}
                 </div>
-                <div className='text-center text-success'>
-                    {success&&(<div>{success}</div>)}
+                <div className='text-center text-success mt-4'>
+                    {success&&(<div>Welcome Back {name.toUpperCase()} </div>)}
                 </div>
                 <div className='text-center'>
                     <button className="button-card mt-3 w-50 p-4 mb-5">SUBMIT</button>
@@ -84,8 +98,10 @@ const SignIn = () => {
         </div>
     )
     return (
-        <div>
+        <div className='Signup-wrapper mx-auto py-5'>
+            {/* {isAuth!==false?<Redirect to ='/'/>:null} */}
             {ShowForm()}
+            <Google informParent = {informParent}/>
         </div>
     
     )

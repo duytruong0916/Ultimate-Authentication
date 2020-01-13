@@ -25,12 +25,10 @@ const userSchema = new mongoose.Schema(
         phone: {
             type: String,
             trim: true,
-            required: true
         },
         address: {
             type: String,
             trim: true,
-            required: true,
             lowercase: true
         },
         hashed_password: {

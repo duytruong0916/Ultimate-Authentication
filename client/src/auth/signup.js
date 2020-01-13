@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { states } from '../core/UsState';
+import {authenticate, isAuth } from '../auth/Helpers';
 import axios from 'axios';
 const SignUp = () => {
     const [data, setdata] = useState({
@@ -36,7 +37,7 @@ const SignUp = () => {
             axios({
                 method: 'POST',
                 url: `http://localhost:8000/api/signup`,
-                data: {firstname, lastname, email, password, phone, addressinfo}
+                data: {firstname, lastname, email, password, phone, address:addressinfo}
             })
             .then((response)=>{
                 console.log(response.data.message)
@@ -49,7 +50,7 @@ const SignUp = () => {
         }
     }
     const ShowForm = ()=>(
-        <div className='w-50 mx-auto'>
+        <div>
             <div className='page-header-title text-center'>Create An Account</div>
             <form onSubmit={onSubmit} onBlur={()=>setdata({...data,error:'', errornotmatch:'', success:''})}>
                 <div className='mt-4'>
@@ -100,7 +101,7 @@ const SignUp = () => {
                     </div>
                     <div >
                         <select onChange={onChangeHandler('state')} className='text-input w-50' value={state}>
-                            <option>SELECT A STATE</option>
+                            <option className = 'small'>STATE</option>
                             {states.map((st, i) => (
                                 <option key={i} value={st}>{st}</option>
                             ))}
@@ -157,7 +158,7 @@ const SignUp = () => {
         </div>
     )
     return (
-        <div>
+        <div className= 'Signup-wrapper mx-auto py-5'>
             {ShowForm()}
         </div>
     
