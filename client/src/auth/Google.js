@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { authenticate, isAuth } from '../auth/Helpers';
 import GoogleLogin from 'react-google-login';
 const Google = ({informParent =f =>f}) => {
 
     const responseGoogle = (response) => {
-        console.log(response.tokenId);
+        console.log(process.env.REACT_APP_GOOGLECLIENTID);
         axios({
             method: 'POST',
             url: `${process.env.REACT_APP_API}/google-login`,
@@ -23,13 +22,12 @@ const Google = ({informParent =f =>f}) => {
     return (
         <div>
             <GoogleLogin
-                //clientId={`${process.env.REACT_APP_GOOGLECLIENTID}`}
-                clientId = '942121231116-hu0oi3knkr9ck61kv01c1qd2e1ogoics.apps.googleusercontent.com'
+                clientId={`${process.env.REACT_APP_GOOGLECLIENTID}`}
                 buttonText="Login"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 render={renderProps => (
-                    <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='button-card w-100'><i class="fa fa-google mr-4" aria-hidden="true"></i>LOGIN WITH GOOGLE</button>
+                    <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='button-card w-100 bg-success'><i class="fa fa-google mr-4" aria-hidden="true"></i>LOGIN WITH GOOGLE</button>
                   )}
                 cookiePolicy={'single_host_origin'}
             />

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import {Redirect } from 'react-router-dom';
+import {Redirect , Link} from 'react-router-dom';
 import {authenticate, isAuth } from '../auth/Helpers';
 import Google from '../auth/Google';
+import Facebook from '../auth/Facebook';
 const SignIn = () => {
     const [data, setdata] = useState({
         password: '',
@@ -91,8 +92,11 @@ const SignIn = () => {
                 <div className='text-center text-success mt-4'>
                     {success&&(<div>Welcome Back {name.toUpperCase()} </div>)}
                 </div>
+                <div>
+                    <Link to='/forgotpassword'>I've forgot my password.</Link>
+                </div>
                 <div className='text-center'>
-                    <button className="button-card mt-3 w-50 p-4 mb-5">SUBMIT</button>
+                    <button className="button-card mt-3 w-50">SUBMIT</button>
                 </div>
             </form>
         </div>
@@ -101,7 +105,12 @@ const SignIn = () => {
         <div className='Signup-wrapper mx-auto py-5'>
             {/* {isAuth!==false?<Redirect to ='/'/>:null} */}
             {ShowForm()}
-            <Google informParent = {informParent}/>
+            <div>
+                 <Google informParent = {informParent}/>
+            </div>
+            <div className= 'mt-3'>
+                 <Facebook informParent = {informParent}/>
+            </div>
         </div>
     
     )

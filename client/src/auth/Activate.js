@@ -10,11 +10,11 @@ const Activate = (props) => {
     const {lastname, token } = data;
     useEffect(() => {
        let token  = props.match.params.token;
+       console.log(token)
        if(token){
-        let {lastname} = jwt.decode(token);
+        //let {lastname='unknown'} = jwt.decode(token);
         setdata({...data, lastname,token})
        }
-       console.log(lastname,token);
 
     }, [])
     const ClickSubmit = (e) => {
@@ -26,6 +26,7 @@ const Activate = (props) => {
         })
             .then((response) => {
                 console.log('ACCOUNT ACTIVATED',response.data.message)
+        
             })
             .catch(error => {
                 console.log(error)

@@ -30,7 +30,7 @@ const Menu = (props) => {
                         </span>
                     </Fragment>}
                 {isAuth()&& <span onClick={()=>Signout(()=>{ console.log('Signed Out'); window.location.reload(false); })}>
-                    <div className='text-white'>LOG OUT</div>
+                    <div className='link-nav' style={{cursor: 'pointer'}}>LOG OUT</div>
                 </span>}
             </div>
             <span className="navbar-toggle" data-toggle="collapse" data-target="#collapsibleNavbar">

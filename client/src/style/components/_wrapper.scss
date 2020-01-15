@@ -1,7 +1,9 @@
 .Signup-wrapper{
-  width: 50%;
+  width: 60%;
+  height: 100vh;
   @media (max-width: $desktop-breakpoint) {
     width: 100%;
     padding: $s-size;
+    height: auto;
   }
 }
