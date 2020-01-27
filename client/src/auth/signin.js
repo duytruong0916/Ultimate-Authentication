@@ -98,6 +98,9 @@ const SignIn = () => {
                 <div className='text-center'>
                     <button className="button-card mt-3 w-50">SUBMIT</button>
                 </div>
+                <div className='text-center'>
+                    <Link to ='/signup'><button className="button-card mt-3 w-50">CREATE AN ACCOUNT</button></Link>
+                </div>
             </form>
         </div>
     )

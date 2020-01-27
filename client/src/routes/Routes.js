@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import App  from '../App';
 import SignUp from '../auth/signup';
 import SignIn from '../auth/signin';
 import Menu from '../core/Menu';
@@ -12,7 +11,7 @@ const Routes = ()=>{
         <BrowserRouter>
         <Menu />
             <Switch >
-                <Route path = '/' exact = {true}component={App}/>
+                <Route path = '/' exact = {true}component={SignIn}/>
                 <Route path = '/signup' component={SignUp}/>
                 <Route path = '/signin' component={SignIn}/>
                 <Route path = '/forgotpassword' component={Forgot}/>
